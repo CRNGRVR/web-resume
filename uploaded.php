@@ -15,10 +15,20 @@
     var_dump($_POST["phone"]);
     var_dump($_POST["mail"]);
 
-    $file = './res/res-'.$_POST["name"] . "_" . $_POST["sur"] . "_" . $_POST["otch"];
+    $file = './res/res-' . $_POST["name"] . "_" . $_POST["sur"] . "_" . $_POST["otch"];
     $current = $_POST["name"] . " " . $_POST["sur"] . " " . $_POST["otch"] . " " . $_POST["yo"] . " " . $_POST["gen"] . " "
      . $_POST["country"] . " " . $_POST["obr"] . " " . $_POST["lng"] . " " . $_POST["prof"] . " " . $_POST["phone"] . " " . $_POST["mail"] . "\n";
     file_put_contents($file, $current, FILE_APPEND | LOCK_EX); //  Запись в файл
+
+    //  Загрузка фотографии
+    $uploaddir = './photo/';
+    $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
+    if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
+        rename($uploadfile, "./photo/res-" . $_POST["name"] . "_" . $_POST["sur"] . "_" . $_POST["otch"] . '-photo');
+        echo "Файл корректен и был успешно загружен.\n";
+    } else {
+        echo "Фотография не загружена.\n";
+    }
 
     echo '
         Резюме загружено. <br>

@@ -9,6 +9,13 @@
     $file = file_get_contents('./res/' . $_GET["file"], false);
     $data = explode(" ", $file);
 
+    //  Показать соответствующую резюме фотографию, если такая имеется
+    if (file_exists('./photo/' . $_GET["file"] . '-photo')) {
+        echo '
+            <img src="' . './photo/' . $_GET["file"] . '-photo' . '" width="200" height="200">
+        ';
+    }
+
     echo '
         <h1>' . $data[0] . ' ' . $data[1] . ' ' . $data[2] . '</h1><br>
         <h3>Возраст: ' . $data[3] . ' лет, пол: ' . $data[4] . '</h3><br>
