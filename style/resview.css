@@ -1,0 +1,52 @@
+/*
+    19.11.2023
+    Стиль для страницы резюме
+*/
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: blueviolet;
+}
+
+h1 {
+    color: white;
+}
+
+h2 {
+    color: white;
+}
+
+h3 {
+    color: white;
+}
+
+a:link {
+    text-decoration: none;
+    color: yellow
+}
+
+a:visited {
+    text-decoration: none;
+    color: yellow
+}
+
+.text {
+    color: white;
+}
+
+.panel {
+    margin-top: 100pt;
+    margin-left: 20%;
+    margin-right: 20%;
+
+    padding-top: 50pt;
+    padding-left: 50pt;
+    padding-bottom: 100pt;
+
+    background-color: rgb(49, 48, 48);
+    border-radius: 20px;
+}
+
+img {
+    padding-top: 10pt;
+}
